@@ -1,0 +1,165 @@
+.candidate-form {
+  overflow-y: scroll;
+}
+
+.candidate-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-form input, .candidate-form select, .candidate-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #C7A44C;
+}
+
+button {
+  padding: 0.75rem;
+  background-color: #C7A44C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #C7A44C;
+}
+
+.skills-form {
+  margin-top: 1rem;
+}
+
+
+.skills-dropdown {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  border: 1px solid #C7A44C;
+  border-radius: 8px;
+  background-color: #C7A44C;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.selected-skills {
+  margin-top: 1rem;
+}
+
+.skill-item {
+  background-color: #C7A44C;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments à gauche et à droite */
+  align-items: center; /* Centre verticalement les éléments */
+}
+
+.skill-item button {
+  background-color: transparent;
+  border: none;
+  color: rgb(225, 13, 13);
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 14px; /* Ajuste la taille de la croix */
+}
+
+.skill-item button:hover {
+  color: #ff5e5e; /* Change la couleur au survol */
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.candidate-form {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+/* Alignement prénom et nom sur la même ligne */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.input-group div {
+  flex: 1;
+}
+
+.candidate-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-form input,
+.candidate-form select,
+.candidate-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #C7A44C;
+}
+
+button {
+  padding: 0.75rem;
+  background-color: #C7A44C;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #C7A44C;
+}
+
+.cv-container {
+  padding: 20px;
+  background-color: #C7A44C;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nouveaux styles ajoutés */
+.form-field {
+  width: 100%;  /* Champs par défaut prenant toute la largeur */
+}
+
+.form-field-short {
+  width: 48%;  /* Champs pour Prénom et Nom réduits pour être alignés sur une ligne */
+  margin: 0;  /* Supprime la marge pour un alignement parfait */
+  align-self: start;  /* Alignement en haut pour une meilleure apparence */
+  empty-cells: show;  /* Affiche les cellules vides pour un meilleur alignement */
+}
+
+.form-field-large {
+  width: 100%;  /* Champs plus larges pour Biographie ou d'autres sections spécifiques */
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Espacement entre les deux champs (par exemple, Prénom et Nom) */
+}
+
+.input-group div {
+  flex: 1;
+}
+
