@@ -1,0 +1,102 @@
+button {
+  padding: 0.75rem;
+  background-color: #C7A44C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #C7A44C;
+}
+
+.skills-form {
+  margin-top: 1rem;
+}
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.candidate-form {
+  width: 50%; /* Ajustement de la taille du formulaire */
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
+/* Alignement prénom et nom sur la même ligne */
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.input-group div {
+  flex: 1;
+}
+
+.candidate-form label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.candidate-form input,
+.candidate-form select,
+.candidate-form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #000000;
+}
+
+button {
+  padding: 0.75rem;
+  background-color: #C7A44C;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #C7A44C;
+}
+
+.cv-container {
+  width: 40%; /* Ajustement de la largeur du CV */
+  padding: 20px;
+  background-color: #C7A44C;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Nouveaux styles ajoutés */
+.form-field {
+  width: 100%;  /* Champs par défaut prenant toute la largeur */
+}
+
+.form-field-short {
+  width: 48%;  /* Champs pour Prénom et Nom réduits pour être alignés sur une ligne */
+}
+
+.form-field-large {
+  width: 100%;  /* Champs plus larges pour Biographie ou d'autres sections spécifiques */
+}
+
+.input-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* Espacement entre les deux champs (par exemple, Prénom et Nom) */
+}
+
+.input-group div {
+  flex: 1;
+}
