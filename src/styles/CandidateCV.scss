@@ -1,0 +1,837 @@
+/* Conteneur principal pour les deux sections (formulaire et CV) */
+.form-container {
+  display: flex;  /* Active le modèle flexbox pour aligner les deux sections côte à côte */
+  justify-content: space-between;  /* Assure que les deux sections soient réparties de manière égale */
+  gap: 20px;  /* Ajoute un espacement entre les deux sections */
+  background-color: #ffffff; /* Fond doux pour l'ensemble de la page */
+  height: 100dvh; /* Prend toute la hauteur de la fenêtre */
+  box-sizing:border-box;
+  overflow: hidden; /* Empêche le défilement horizontal */
+}
+  
+  /* Formulaire du candidat à gauche */
+  .candidate-form {
+    background-color: white;  /* Fond blanc pour contraster avec le fond de la page */
+    padding: 20px;  /* Ajoute un padding interne au formulaire */
+    border-radius: 8px;  /* Coins arrondis pour un effet moderne */
+    max-height: 100%;  /* Limite la hauteur pour éviter que le formulaire prenne toute la page */
+    overflow-y: auto;  /* Permet de faire défiler le formulaire verticalement */
+    border: 1px solid #d1d5db;  /* Ajoute une bordure légère pour la structure */
+  }
+  
+  /* Style des étiquettes (labels) dans le formulaire */
+  .candidate-form label {
+    font-weight: bold;  /* Texte en gras pour les étiquettes */
+    margin-bottom: 0.5rem;  /* Espacement sous chaque étiquette */
+    display: block;  /* Chaque étiquette prend toute la ligne */
+    margin: 1rem 0;  /* Espacement autour de chaque étiquette */
+    width: 30%;  /* Chaque étiquette prend toute la largeur disponible */
+  }
+  
+  /* Style des champs de saisie (input), menus déroulants (select) et zones de texte (textarea) */
+  .candidate-form input, .candidate-form select, .candidate-form textarea {
+    width: 100%;  /* Chaque champ prend toute la largeur disponible */
+    margin-bottom: 0.5rem;  /* Espacement sous chaque champ */
+    padding: 0.75rem;  /* Un peu plus de padding pour un look moderne */
+    border-radius: 8px;  /* Coins arrondis pour un effet doux */
+    border: 1px solid #CFCFD0;  /* Bordure noire pour plus de contraste */
+    background-color: #f9fafb;  /* Fond léger et doux */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Légère ombre interne pour ajouter de la profondeur */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Animation douce lors du focus */
+  }
+  
+  /* Animation pour les champs lors du focus */
+  .candidate-form input:focus, .candidate-form select:focus, .candidate-form textarea:focus {
+    border-color: #C7A44C;  /* Bordure bleue lors du focus */
+    box-shadow: 0 0 5px #C7A44C;  /* Ombre bleue autour du champ */
+  }
+
+  /* Bouton stylé pour soumettre */
+  button {
+    padding: 0.75rem;  /* Ajoute un bon padding pour rendre le bouton plus grand et confortable */
+    background-color: #C7A44C;  /* Couleur de fond verte moderne */
+    color: white;  /* Texte blanc */
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif; /* Font style élégant */
+    font-weight: bold;  /* Texte en gras pour une meilleure lisibilité */
+    border: none;  /* Supprime les bordures par défaut */
+    border-radius: 5px;  /* Coins arrondis pour un style moderne */
+    cursor: pointer;  /* Curseur de clic pour indiquer que le bouton est interactif */
+    transition: background-color 0.3s;  /* Animation douce lors du survol */
+  }
+  
+  /* Couleur du bouton lors du survol */
+  button:hover {
+    background-color: #b89743;  /* Passe à une teinte plus foncée de vert */
+  }
+  
+  /* Style pour le conteneur CV à droite */
+/* Global Styles */
+
+/* Global Styles */
+/* Global Styles */
+.cv-container {
+  width: 100%;
+  height: 100dvh;
+  overflow-y: auto;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+  max-width: 900px; /* Augmenté la largeur maximale */
+  margin: 2 auto;
+  background-color: #ffffff;
+  color: #333;
+  h3 {
+    font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #C7A44C;
+  padding-bottom: 5px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+  }
+  questions-icon {
+    font-size: 24px;  /* Taille de l'icône */
+    color: #C7A44C;
+    margin-right: 50px;
+    margin-left: 150px;
+  }
+}
+/* Header Section */
+/* Header Section */
+.cv-header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333; /* Couleur de texte moderne */
+}
+
+.cv-photo-container {
+  margin-bottom: 10px;
+  border-color: #C7A44C;
+  border-width: 45px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+}
+
+.cv-profile-picture {
+  width: 180px; /* Augmenté la taille de la photo */
+  height: 180px;
+  object-fit: cover;
+  border-color: #C7A44C;
+  border-width: 40%;
+  border-radius: 50%;
+  margin: 0 auto;
+  transition: transform 0.3s ease; /* Ajout d'une transition */
+}
+
+.cv-profile-picture:hover {
+  transform: scale(1.05); /* Effet de survol */
+}
+
+.cv-name-job h1 {
+  font-size: 36px; /* Augmenté la taille de la police pour le nom */
+  font-weight: bold;
+  margin-top: 10px;
+  color: #4A4A4A; /* Couleur de texte moderne */
+}
+
+/* Contact Information */
+.cv-contact-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #ffffff; /* Couleur de fond moderne */
+  padding: 20px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cv-contact-item {
+  width: 100%; /* Prend toute la largeur disponible */
+  display: flex; /* Affiche les éléments en ligne */
+  align-items: stretch; /* Étire les éléments pour qu'ils aient la même hauteur */
+  flex-wrap: wrap; /* Passe à la ligne si nécessaire */
+  gap: 16px; /* Espacement entre les éléments */
+  text-align: center; /* Centre le texte horizontalement */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+
+  & > p {
+    width: 100%; /* Prend toute la largeur disponible */
+    font-size: 18px; /* Augmenté la taille de la police */
+    margin: 0; /* Supprime les marges par défaut */
+  }
+
+  h3 {
+    font-weight: bold; /* Texte en gras pour les titres */
+    margin-bottom: 5px; /* Espacement sous les titres */
+    font-size: 20px; /* Taille de police augmentée pour les titres */
+  }
+}
+
+/* Section Titles */
+.cv-section h3 {
+  font-size: 24px; /* Augmenté la taille des titres de section */
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #C7A44C;
+  padding-bottom: 5px;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: left;
+}
+
+/* Experience and Education */
+.experience-item, .education-item {
+  margin-bottom: 20px; /* Plus d'espacement entre les éléments */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 20px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+.experience-item:hover, .education-item:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.experience-item p, .education-item p {
+  margin: 8px 0;
+}
+
+.experience-item .experience-details, .education-item .education-details {
+  text-align: left;
+  font-size: 18px; /* Augmenté la taille de la police des détails */
+  color: #4A4A4A; /* Couleur de texte moderne */
+}
+
+.experience-item .experience-dates, .education-item .education-dates {
+  text-align: right;
+  font-size: 18px;
+  color: #4A4A4A; /* Couleur de texte moderne */
+}
+
+/* Skills Section */
+.cv-section ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cv-section ul li {
+  flex: 1 1 45%;
+  margin-bottom: 15px; /* Augmenté l'espacement entre les items */
+  padding-left: 15px;
+  position: relative;
+  font-size: 18px; /* Augmenté la taille de la police */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 10px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+.cv-section ul li:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #C7A44C; /* Couleur de la puce */
+}
+
+/* Languages Section */
+.languages-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.languages-section ul li {
+  margin-bottom: 10px;
+  padding-left: 15px;
+  position: relative;
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.languages-section ul li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #000;
+  font-size: 24px;
+}
+
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.divider {
+  flex: 1; /* Prend toute la place disponible */
+  height: 1px; /* Hauteur de 1px */
+  background-color: gold; /* Couleur dorée */
+  opacity: 0.6; /* Opacité à 60% */
+}
+
+
+
+.flex items-center {
+  display: flex;
+  align-items: center;
+}
+
+
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Questions Header Styling */
+.questions-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.questions-icon {
+  font-size: 24px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 10px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Title Container Styling */
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.text-gold {
+  color: #C7A44C; /* Couleur dorée */
+  font-size: 34px;
+}
+
+.questions-icon {
+  font-size: 34px; /* Taille de l'icône */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Skills Header Styling */
+.skills-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.Skills {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Title Container Styling */
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.text-gold {
+  color: #C7A44C; /* Couleur dorée */
+  font-size: 34px;
+}
+
+.questions-icon {
+  font-size: 34px; /* Taille de l'icône */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Skills Header Styling */
+.skills-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.skills-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Education Header Styling */
+.education-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.education-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Title Container Styling */
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.text-gold {
+  color: #C7A44C; /* Couleur dorée */
+  font-size: 34px;
+}
+
+.questions-icon {
+  font-size: 34px; /* Taille de l'icône */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Skills Header Styling */
+.skills-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.skills-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Education Header Styling */
+.education-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.education-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Languages Header Styling */
+.languages-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.languages-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+
+/* Profile Header Styling */
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.profil-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* General Text Styling */
+p {
+  font-size: 18px;
+  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
+  background-color: #f9f9f9; /* Couleur de fond moderne */
+  padding: 15px; /* Ajout de padding */
+  border-radius: 8px; /* Ajout de coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+p:hover {
+  transform: translateY(-5px); /* Effet de survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+}
+
+.cv-section p {
+  margin-bottom: 15px; /* Espacement entre les paragraphes */
+  font-size: 18px; /* Augmenté la taille de la police */
+}
+
+.cv-section p strong {
+  display: block;
+  font-weight: bold;
+}
+
+/* Title Container Styling */
+.title-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.text-gold {
+  color: #C7A44C; /* Couleur dorée */
+  font-size: 34px;
+  margin-right: 10px; /* Espacement à droite de l'icône */
+}
+
+.questions-icon {
+  font-size: 34px; /* Taille de l'icône */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Skills Header Styling */
+.skills-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.skills-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Education Header Styling */
+.education-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.education-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Experience Header Styling */
+.experience-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; /* Espacement sous le header */
+}
+
+.experience-icon {
+  font-size: 34px; /* Taille de l'icône */
+  color: #C7A44C; /* Couleur dorée */
+  margin-right: 15px; /* Espacement à droite de l'icône */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cv-contact-info {
+    flex-direction: column;
+  }
+
+  .cv-contact-item {
+    flex: 1 1 100%;
+  }
+
+  .experience-item .experience-dates, .education-item .education-dates {
+    text-align: left;
+  }
+}
+
+.cv-icon {
+  width: 100px; /* taille de l'icône */
+  height: 100px;
+  margin-right: 10px;
+}
+
+.add-button, .remove-button {
+  padding: 0.75rem;
+  background-color: #C7A44C;
+  color: white;
+  font-size: large;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #C7A44C;
+  padding-bottom: 5px;
+  font-family: "Times New Roman", Times, serif;
+  text-align: left;
+}
+
+h5 {
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  margin-top: auto;
+  text-transform: uppercase;
+  border-bottom: 2px solid #C7A44C;
+  padding-bottom: 5px;
+  font-family: Cinzel, serif;
+  text-align: left;
+}
