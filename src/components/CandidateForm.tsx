@@ -7,10 +7,8 @@ import { yellow } from '@mui/material/colors';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
 import Autocomplete from '@mui/material/Autocomplete';
-import styled from '@mui/material/styles/styled';
 import TextField from '@mui/material/TextField';
 import { CloudUpload as CloudUploadIcon } from "@mui/icons-material";
-import { log } from "console";
 import DownloadPDF from "./DownloadPDF";
 
 
@@ -25,18 +23,6 @@ const employmentTypes = [
   "CDD Temps partiel"
 ];
 
-
-const VisuallyHiddenInput = styled('input')({
-  clip: 'rect(0 0 0 0)',
-  clipPath: 'inset(50%)',
-  height: 1,
-  overflow: 'hidden',
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  whiteSpace: 'nowrap',
-  width: 1,
-});
 
 
 const skillsList = [
