@@ -110,7 +110,6 @@
   margin-bottom: 10px;
   border-color: #C7A44C;
   border-width: 45px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
 }
 
 .cv-profile-picture {
@@ -159,8 +158,7 @@
   align-items: stretch; /* Étire les éléments pour qu'ils aient la même hauteur */
   flex-wrap: wrap; /* Passe à la ligne si nécessaire */
   gap: 16px; /* Espacement entre les éléments */
-  text-align: center; /* Centre le texte horizontalement */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+ transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
 
   & > p {
     width: 100%; /* Prend toute la largeur disponible */
@@ -179,7 +177,6 @@
 .cv-section h3 {
   font-size: 24px; /* Augmenté la taille des titres de section */
   font-weight: bold;
-  margin-bottom: 15px;
   text-transform: uppercase;
   border-bottom: 2px solid #C7A44C;
   padding-bottom: 5px;
@@ -193,14 +190,8 @@
   background-color: #f9f9f9; /* Couleur de fond moderne */
   padding: 20px; /* Ajout de padding */
   border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
 }
 
-.experience-item:hover, .education-item:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
 
 .experience-item p, .education-item p {
   margin: 8px 0;
@@ -228,22 +219,20 @@
 }
 
 .cv-section ul li {
-  flex: 1 1 45%;
-  margin-bottom: 15px; /* Augmenté l'espacement entre les items */
-  padding-left: 15px;
-  position: relative;
+  flex: 1 1 calc(45% - 10px); /* Répartit les éléments sur deux colonnes avec un espacement */
+  margin-bottom: 10px;
+  padding-left: 15px; /* Ajout de padding à gauche */
+  position: relative; /* Position relative pour les puces */
   font-size: 18px; /* Augmenté la taille de la police */
   background-color: #f9f9f9; /* Couleur de fond moderne */
   padding: 10px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+  margin-right: 10px; /* Espacement entre les colonnes */
 }
 
-.cv-section ul li:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
+.cv-section ul li:nth-child(2n) {
+  margin-right: 0; /* Supprime l'espacement à droite pour les éléments pairs */
 }
+
 
 .cv-section ul li::before {
   content: "•";
@@ -275,24 +264,10 @@
   font-size: 24px;
 }
 
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
 
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
+
 
 .cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
   font-size: 18px; /* Augmenté la taille de la police */
 }
 
@@ -326,42 +301,13 @@ p:hover {
 .divider {
   flex: 1; /* Prend toute la place disponible */
   height: 1px; /* Hauteur de 1px */
-  background-color: gold; /* Couleur dorée */
+  background-color: #C7A44C; /* Couleur dorée */
   opacity: 0.6; /* Opacité à 60% */
 }
-
-
 
 .flex items-center {
   display: flex;
   align-items: center;
-}
-
-
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
 }
 
 /* Questions Header Styling */
@@ -390,32 +336,6 @@ p:hover {
   .experience-item .experience-dates, .education-item .education-dates {
     text-align: left;
   }
-}
-
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
 }
 
 /* Title Container Styling */
@@ -449,32 +369,6 @@ p:hover {
     text-align: left;
   }
 }
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
-}
-
 /* Skills Header Styling */
 .skills-header {
   display: flex;
@@ -503,31 +397,6 @@ p:hover {
   }
 }
 
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
-}
 
 /* Title Container Styling */
 .title-container {
@@ -589,27 +458,9 @@ p:hover {
 /* General Text Styling */
 p {
   font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
   background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
+  padding: 5px; /* Ajout de padding */
   border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
 }
 
 /* Title Container Styling */
@@ -696,31 +547,6 @@ p:hover {
   margin-right: 15px; /* Espacement à droite de l'icône */
 }
 
-/* General Text Styling */
-p {
-  font-size: 18px;
-  line-height: 1.7; /* Augmenté la hauteur de ligne pour un meilleur espacement */
-  background-color: #f9f9f9; /* Couleur de fond moderne */
-  padding: 15px; /* Ajout de padding */
-  border-radius: 8px; /* Ajout de coins arrondis */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
-}
-
-p:hover {
-  transform: translateY(-5px); /* Effet de survol */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre plus prononcée au survol */
-}
-
-.cv-section p {
-  margin-bottom: 15px; /* Espacement entre les paragraphes */
-  font-size: 18px; /* Augmenté la taille de la police */
-}
-
-.cv-section p strong {
-  display: block;
-  font-weight: bold;
-}
 
 /* Title Container Styling */
 .title-container {
@@ -796,8 +622,15 @@ p:hover {
 
 .cv-icon {
   width: 100px; /* taille de l'icône */
-  height: 100px;
-  margin-right: 10px;
+  height: 100px; /* taille de l'icône */
+  margin-right: 10px; /* Espacement à droite de l'icône */
+}
+
+.cv-icon-nanny {
+  width: 150px; /* taille de l'icône */
+  height: 150px; /* taille de l'icône */
+  margin-right: 1px; /* Espacement à droite de l'icône */
+  margin-left: 530px;
 }
 
 .add-button, .remove-button {
@@ -834,4 +667,16 @@ h5 {
   padding-bottom: 5px;
   font-family: Cinzel, serif;
   text-align: left;
+}
+
+.education-item {
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+.education-icon-pdf {
+  font-size: 34px;
+  color: #C7A44C;
+  margin-right: 15px;
 }

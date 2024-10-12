@@ -52,10 +52,13 @@ interface CVProps {
 const CandidateCV: React.FC<CVProps> = ({ formData }) => {
   const selectedSkills = formData.skills.filter(skill => skill.selected);
 
+  console.log(formData);
+
   return (
     <div className="cv-container">
       {/* Header Section */}
       <div className="cv-header">
+        <img src={`${process.env.PUBLIC_URL}/nanny.png`} alt="Icon" className="cv-icon-nanny" />
         {formData.profilePicture && (
           <div className="cv-photo-container">
             <img src={formData.profilePicture} alt="Profile" className="cv-profile-picture" />
@@ -67,7 +70,6 @@ const CandidateCV: React.FC<CVProps> = ({ formData }) => {
 {/* Barres et logo */}
       </div>
       <div className="cv-name-job">
-  <img src={`${process.env.PUBLIC_URL}/nanny.png`} alt="Icon" className="cv-icon" />
 </div>
     {/* Contact Section */}
     <div className="cv-contact-info">
@@ -83,21 +85,6 @@ const CandidateCV: React.FC<CVProps> = ({ formData }) => {
         <p><strong>Date de disponibilité:</strong> {formData.availableDate}</p>
       </div>
     </div>
-        {/* Education Section */}
-        <div className="cv-section">
-        <div className="education-header flex items-center">
-        <FontAwesomeIcon icon={faFileMedical} className='education-icon' />
-                  <h3>Formation</h3>
-        </div>
-        {formData.education.map((education, index) => (
-          <div key={index} className="education-item">
-            <p><strong>{education.diploma}</strong> à :{education.school}</p>
-            <p>{education.startDate} - {education.endDate}</p>
-            <p>{education.field}</p>
-            <p>{education.description}</p>
-          </div>
-        ))}
-      </div>
     {/* Profile Section */}
     <div className="cv-section">
     <div className='profile-header flex items-center'>
@@ -106,6 +93,21 @@ const CandidateCV: React.FC<CVProps> = ({ formData }) => {
       </div>
       <p>{formData.bio}</p>
     </div>
+        {/* Education Section */}
+        <div className="cv-section">
+        <div className="education-header flex items-center">
+        <FontAwesomeIcon icon={faFileMedical} className='education-icon' />
+                  <h3>Formation</h3>
+        </div>
+        {formData.education.map((education, index) => (
+          <div key={index} className="education-item">
+            <p><strong>{education.school}</strong>{education.diploma}
+            {education.field}</p>
+            <p>{education.startDate} - {education.endDate}</p>
+            <p>{education.description}</p>
+          </div>
+        ))}
+      </div>
     {/* Experience Section */}
     <div className="cv-section">
       <div className='experience-header flex items-center'>

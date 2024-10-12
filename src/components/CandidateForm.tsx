@@ -334,11 +334,7 @@ const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
             startIcon={<CloudUploadIcon />}
           >
             TÉLÉCHARGER UNE PHOTO
-            <VisuallyHiddenInput
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-            />
+            <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
           </Button>
         </div>
 
